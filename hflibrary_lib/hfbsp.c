@@ -141,7 +141,7 @@ double r_int(double x, double y, int operation)
 	if (operation == sto_sardf)
 		return int_sardef_2(x, y, 0.2, 0.2);
 
-	return min(x,y);
+	return fmin(x,y);
 }
 
 double r_uni(double x, double y, int operation)
@@ -151,7 +151,7 @@ double r_uni(double x, double y, int operation)
 	if (operation == sto_sardf)
 		return uni_sardef_2(x, y, 0.2, 0.2);
 
-	return max(x,y);
+	return fmax(x,y);
 }
 
 double sbspGetValue(double x, double y, double z, BSPTree* pTree)
@@ -272,8 +272,8 @@ void sbspProcessTree(BSPTree* pTree, int nPolygonsSize, int* pPolygons)
 			if (cl == polygon_spanning)
 			{
 				nToSpan++;
-				fDistance = min(fDistance, sbspMinPlaneDistance(pPolygons[iSubIndex], g_pMeshData[nPoly].m_plBase));
-				fAngle = max(fAngle, fabs(anglePlane(g_pMeshData[nPoly].m_plBase, g_pMeshData[pPolygons[iSubIndex]].m_plBase)));
+				fDistance = fmin(fDistance, sbspMinPlaneDistance(pPolygons[iSubIndex], g_pMeshData[nPoly].m_plBase));
+				fAngle = fmax(fAngle, fabs(anglePlane(g_pMeshData[nPoly].m_plBase, g_pMeshData[pPolygons[iSubIndex]].m_plBase)));
 			}
 		}
 		if (nToSpan == 0)
@@ -388,7 +388,7 @@ double sbspMinPlaneDistance(int nIndex, BSPPlane* plane)
 		vecTemp = g_pMeshData[nIndex].m_points[i];		
 		fDistanceCur = fabs(distancePlane(vecTemp.x, vecTemp.y, vecTemp.z, plane));
 		if (fabs(fDistanceCur) > g_distTol)
-			fDistance = min(fDistance, fDistanceCur);
+			fDistance = fmin(fDistance, fDistanceCur);
 	}
 	return fDistance;
 }

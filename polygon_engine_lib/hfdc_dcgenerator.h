@@ -3,8 +3,8 @@
 
 #include "hfdc_comp.h"
 #include "hfdc_quadmesh.h"
-#include "HFPolyMesh.h"
-#include "HFInterpreter.h"
+#include "hfpolymesh.h"
+#include "hfinterpreter.h"
 
 class DcGenerator{
 public:

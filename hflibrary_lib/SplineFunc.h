@@ -48,8 +48,6 @@ double factor_w;
 /**************************************************/
 /**************************************************/
 
-double Bernstein(int i,int n, double t);
-
 double Knot_u(int i);
 
 double RecursSpline_u(int i,int n,double t);
