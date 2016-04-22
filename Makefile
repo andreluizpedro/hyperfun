@@ -11,7 +11,7 @@ LIBS = $(shell pkg-config --libs $(PKGS))
 all: hfp
 
 hfp: $(OBJS)
-	$(CXX) $(LIBS) -o $@ $^
+	$(CXX) $^ $(LIBS) -o $@ 
 
 clean:
 	rm -f $(OBJS) hfp
